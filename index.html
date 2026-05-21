@@ -1,23 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<html>
-
- <!-- Browsers Title Bar -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cade Price | Engineering Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Cade Price home">
+      <span class="brand-mark">CP</span>
+      <span>Cade Price</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#projects">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:cadeprice@example.com">Contact</a>
+    </nav>
+  </header>
 
-<body>  
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Electrical &amp; embedded systems portfolio</p>
+        <h1>Engineering projects with hardware at the center.</h1>
+        <p>
+          A focused archive of RF, validation, embedded, and sensor-system work.
+          Built to show the thinking behind the boards, test plans, instruments,
+          and prototypes.
+        </p>
+      </div>
 
+      <aside class="hero-panel" aria-label="Portfolio snapshot">
+        <div>
+          <span class="metric-value">6</span>
+          <span class="metric-label">Projects</span>
+        </div>
+        <div>
+          <span class="metric-value">4</span>
+          <span class="metric-label">Focus Areas</span>
+        </div>
+        <div>
+          <span class="metric-value">2024-2026</span>
+          <span class="metric-label">Build Window</span>
+        </div>
+      </aside>
+    </section>
 
+    <section class="projects-feature" id="projects" aria-labelledby="projects-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2 id="projects-title">Projects</h2>
+        </div>
+
+        <div class="project-filters" aria-label="Filter projects">
+          <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="hardware">Hardware</button>
+          <button class="filter-chip" type="button" data-filter="embedded-systems">Embedded</button>
+          <button class="filter-chip" type="button" data-filter="verification-validation">V&amp;V</button>
+          <button class="filter-chip" type="button" data-filter="rf-engineering">RF</button>
+        </div>
+      </div>
+
+      <article class="featured-project project-card" data-categories="course-corrector hardware embedded-systems verification-validation" data-project="course-corrector-imus">
+        <div class="project-copy">
+          <div class="project-meta">
+            <span>Course Corrector</span>
+            <span>May 2026 - Jun 2026</span>
+          </div>
+          <h3>Course Corrector IMUs</h3>
+          <p>
+            Inertial measurement hardware for validating motion, alignment, and
+            correction behavior in a Course Corrector system. The project centers
+            on embedded sensing, repeatable testing, and verification data that can
+            support design decisions.
+          </p>
+
+          <div class="project-tags" aria-label="Course Corrector IMUs tags">
+            <span>Course Corrector</span>
+            <span>Hardware</span>
+            <span>Embedded Systems</span>
+            <span>Verification/Validation</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#" aria-label="Course Corrector IMUs case study coming soon">Case Study</a>
+            <a href="#" aria-label="Course Corrector IMUs test notes coming soon">Test Notes</a>
+          </div>
+        </div>
+
+        <div class="project-visual visual-imu" aria-hidden="true">
+          <div class="visual-grid"></div>
+          <div class="imu-board">
+            <span class="chip chip-main"></span>
+            <span class="chip chip-small one"></span>
+            <span class="chip chip-small two"></span>
+            <span class="pin-row pins-left"></span>
+            <span class="pin-row pins-right"></span>
+            <span class="axis axis-x">X</span>
+            <span class="axis axis-y">Y</span>
+            <span class="axis axis-z">Z</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="project-grid">
+        <article class="mini-project project-card" data-categories="hardware embedded-systems" data-project="auredia-sensor-kit">
+          <div class="mini-visual visual-sensor" aria-hidden="true"></div>
+          <div class="project-meta">
+            <span>Sensor Kit</span>
+            <span>Jun 2025 - Aug 2025 / May 2026 - Aug 2026</span>
+          </div>
+          <h3>Auredia Sensor Kit</h3>
+          <p>Sensor hardware and embedded system work for collecting and moving measured signals through a reliable kit architecture.</p>
+          <div class="project-tags">
+            <span>Hardware</span>
+            <span>Embedded Systems</span>
+          </div>
+        </article>
+
+        <article class="mini-project project-card" data-categories="verification-validation hardware" data-project="current-limiter-monitor">
+          <div class="mini-visual visual-current" aria-hidden="true"></div>
+          <div class="project-meta">
+            <span>Power Electronics</span>
+            <span>Feb 2026 - Apr 2026</span>
+          </div>
+          <h3>Current Limiter/Monitor</h3>
+          <p>Hardware-focused limiter and monitoring project with emphasis on measurable behavior, protection thresholds, and validation.</p>
+          <div class="project-tags">
+            <span>Verification/Validation</span>
+            <span>Hardware</span>
+          </div>
+        </article>
+
+        <article class="mini-project project-card" data-categories="rf-engineering" data-project="yagi-antenna">
+          <div class="mini-visual visual-yagi" aria-hidden="true"></div>
+          <div class="project-meta">
+            <span>RF Engineering</span>
+            <span>Nov 2025 - Dec 2025</span>
+          </div>
+          <h3>95.1 MHz Three Element Yagi Antenna</h3>
+          <p>Three element directional antenna design centered on frequency targeting, element spacing, and practical RF measurement.</p>
+          <div class="project-tags">
+            <span>RF Engineering</span>
+          </div>
+        </article>
+
+        <article class="mini-project project-card" data-categories="rf-engineering hardware" data-project="microstrip-impedance-matching">
+          <div class="mini-visual visual-microstrip" aria-hidden="true"></div>
+          <div class="project-meta">
+            <span>RF Hardware</span>
+            <span>Oct 2025 - Nov 2025</span>
+          </div>
+          <h3>Microstrip Impedance Matching</h3>
+          <p>RF hardware exploration of transmission-line behavior, impedance matching, and board-level geometry effects.</p>
+          <div class="project-tags">
+            <span>RF Engineering</span>
+            <span>Hardware</span>
+          </div>
+        </article>
+
+        <article class="mini-project project-card" data-categories="embedded-systems" data-project="button-roulette">
+          <div class="mini-visual visual-button" aria-hidden="true"></div>
+          <div class="project-meta">
+            <span>Embedded Game</span>
+            <span>Nov 2024 / Mar 2025</span>
+          </div>
+          <h3>Button Roulette</h3>
+          <p>Embedded interaction project using button inputs, timing, state logic, and physical feedback to create a small hardware game.</p>
+          <div class="project-tags">
+            <span>Embedded Systems</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-chip");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+
+        projectCards.forEach((card) => {
+          const categories = card.dataset.categories.split(" ");
+          card.hidden = filter !== "all" && !categories.includes(filter);
+        });
+      });
+    });
+  </script>
 </body>
-
-
 </html>
