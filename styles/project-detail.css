@@ -102,6 +102,7 @@
   font-size: 1.1rem;
   color: var(--text-secondary);
   margin-bottom: 1.2rem;
+  text-align: center;
 }
 
 .content-section ul,
@@ -207,11 +208,13 @@ pre code {
   height: auto;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  margin: 2rem 0;
+  margin: 2rem auto;
+  display: block;
 }
 
 .project-content figure {
   margin: 2rem 0;
+  text-align: center;
 }
 
 .project-content figcaption {
