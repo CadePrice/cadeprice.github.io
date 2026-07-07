@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game | Cade Price</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/projects.css">
+  <style>
+    .game-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+
+    .game-content {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .game-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .game-content p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--purple-light);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <div class="background-container">
+    <div class="background-overlay"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="../index.html" class="brand-link">
+          <div class="brand-icon-small">
+            <span class="gradient-text">CP</span>
+          </div>
+          <span class="brand-text">Cade Price</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="../projects.html">Projects</a>
+          <a href="../resume.html">Resume</a>
+          <a href="../contact.html">Contact</a>
+          <a href="index.html" class="active">Game</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Game Content -->
+  <main class="game-container">
+    <div class="container">
+      <div class="game-content">
+        <h1 class="gradient-text">Game</h1>
+        <p>Something fun is being built here...</p>
+        <div class="coming-soon">Coming Soon</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

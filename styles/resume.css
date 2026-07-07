@@ -1,0 +1,155 @@
+/* Resume Page Styles */
+
+.resume-main {
+  padding: 3rem 0 4rem;
+  min-height: 100vh;
+}
+
+.resume-main .container {
+  max-width: 1000px;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.resume-header h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 1rem;
+}
+
+.resume-header .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  gap: 0.8rem;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.resume-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.resume-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple-primary), var(--cyan-primary));
+}
+
+.resume-item {
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+}
+
+.resume-item:hover {
+  transform: none;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.item-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.company {
+  font-size: 1.1rem;
+  color: var(--purple-light);
+  font-weight: 600;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.item-details {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.item-details li {
+  margin-bottom: 0.6rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-category {
+  padding: 1.8rem;
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+}
+
+.skill-category h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  color: var(--cyan-light);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .item-header {
+    flex-direction: column;
+  }
+
+  .date {
+    align-self: flex-start;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-header h1 {
+    font-size: 2rem;
+  }
+
+  .resume-item {
+    padding: 1.5rem;
+  }
+
+  .item-header h3 {
+    font-size: 1.3rem;
+  }
+}

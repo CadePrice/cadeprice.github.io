@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Engineering Projects - RF, Embedded Systems, Hardware, and V&V">
+  <title>Projects | Cade Price</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/projects.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="background-container">
+    <div class="background-overlay"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="brand-link">
+          <div class="brand-icon-small">
+            <span class="gradient-text">CP</span>
+          </div>
+          <span class="brand-text">Cade Price</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="projects.html" class="active">Projects</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+          <a href="games/index.html">Game</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="projects-main">
+    <div class="container">
+
+      <!-- Page Header -->
+      <section class="page-header">
+        <h1 class="gradient-text">Projects & Activities</h1>
+      </section>
+
+      <!-- Filter Section -->
+      <section class="filter-section">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="ventures">Ventures & Startups</button>
+        <button class="filter-chip" data-filter="hardware">Hardware & PCB Design</button>
+        <button class="filter-chip" data-filter="embedded">Embedded Systems</button>
+        <button class="filter-chip" data-filter="professional">Professional Development</button>
+      </section>
+
+      <!-- Ventures & Startups -->
+      <section class="project-category">
+        <div class="category-header">
+          <h2>Ventures & Startups</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Nice On! Golfing Solutions -->
+          <article class="project-card" data-categories="ventures">
+            <div class="card-inner">
+              <div class="project-icon">⛳</div>
+              <div class="status-badge">🚧 Work in Progress</div>
+
+              <h3 class="project-title">Nice On! Golfing Solutions</h3>
+
+              <p class="project-description">
+                Served as Test Engineer for the Course Corrector, a smart golf club that
+                combines IMU, strain gauge, BLE, and computer vision technologies to
+                provide data-driven swing analysis.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Project Management</span>
+                <span class="tag">Verification & Validation</span>
+              </div>
+            </div>
+            <a href="projects/nice-on-golfing-solutions.html" class="card-link" aria-label="View Nice On! Golfing Solutions"></a>
+          </article>
+
+          <!-- Roadhouse Anomaly Watch -->
+          <article class="project-card" data-categories="ventures">
+            <div class="card-inner">
+              <div class="project-icon">🎮</div>
+              <div class="status-badge">🚧 Work in Progress</div>
+
+              <h3 class="project-title">Roadhouse Anomaly Watch</h3>
+
+              <p class="project-description">
+                Co-founded an indie game startup developing a horror experience
+                centered around restaurant operations and anomaly survival.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Game Design</span>
+                <span class="tag">Roblox</span>
+              </div>
+            </div>
+            <a href="projects/roadhouse-anomaly-watch.html" class="card-link" aria-label="View Roadhouse Anomaly Watch"></a>
+          </article>
+        </div>
+      </section>
+      
+      <!-- Hardware & PCB Design -->
+      <section class="project-category">
+        <div class="category-header">
+          <h2>Hardware & PCB Design</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Auredia Man -->
+          <article class="project-card" data-categories="hardware">
+            <div class="card-inner">
+              <div class="project-icon">🤖</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Auredia Man</h3>
+
+              <p class="project-description">
+                Leveraged a reference image to create a full 3D mascot that represents the brand.
+                3D printed several copies with a Bambu PS1 printer. Is to be used for merchandising
+                and marketing purposes.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">3D Modeling</span>
+                <span class="tag">3D Printing</span>
+                <span class="tag">Blender</span>
+              </div>
+            </div>
+            <a href="projects/auredia-man.html" class="card-link" aria-label="View Auredia Man"></a>
+          </article>
+
+          <!-- Teensy Daughtercard -->
+          <article class="project-card" data-categories="hardware">
+            <div class="card-inner">
+              <div class="project-icon">🔌</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Teensy Daughtercard</h3>
+
+              <p class="project-description">
+                Designed a custom 100mm x 88mm, 4-layer PCB for a Teensy daughtercard for
+                plug-and-play integration with the existing avionics system. Created the
+                PCB design, BOM, and SOPs covering assembly, operation, and acceptance testing.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Hardware</span>
+                <span class="tag">KiCad</span>
+                <span class="tag">PCB Design</span>
+              </div>
+            </div>
+            <a href="projects/teensy-daughtercard.html" class="card-link" aria-label="View Teensy Daughtercard"></a>
+          </article>
+
+          <!-- Current Limiter/Monitor -->
+          <article class="project-card" data-categories="hardware">
+            <div class="card-inner">
+              <div class="project-icon">⚡</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Current Limiter/Monitor Test Boards</h3>
+
+              <p class="project-description">
+                Performed verification & validation for inrush current limiter and stepper motor
+                current monitoring circuits found within the avionics architecture. Developed test 
+                boards and procedures to validate the performance and protection features of these circuits.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Hardware</span>
+                <span class="tag">KiCad</span>
+                <span class="tag">Verification & Validation</span>
+              </div>
+            </div>
+            <a href="projects/current-limiter-monitor.html" class="card-link" aria-label="View Current Limiter Monitor"></a>
+          </article>
+
+          <!-- Yagi Antenna -->
+          <article class="project-card" data-categories="rf">
+            <div class="card-inner">
+              <div class="project-icon">📡</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">95.1 MHz Three Element Yagi Antenna</h3>
+
+              <p class="project-description">
+                Simulated and refined a 95.1 MHz three element Yagi antenna design in 4nec2.
+                Fabricated and characterized the antenna to validate its performance against
+                the simulated design.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">RF Engineering</span>
+                <span class="tag">Antenna Design</span>
+              </div>
+            </div>
+            <a href="projects/yagi-antenna.html" class="card-link" aria-label="View Yagi Antenna"></a>
+          </article>
+
+          <!-- Microstrip Impedance Matching -->
+          <article class="project-card" data-categories="hardware">
+            <div class="card-inner">
+              <div class="project-icon">📶</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Microstrip Impedance Matching</h3>
+
+              <p class="project-description">
+                Designed and validated multiple transmission line case studies to achieve
+                target impedances. Methods include trace width optimizations, dielectric
+                spacing adjustments, quarter-wave transformers, and open-stub matching.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">RF Engineering</span>
+                <span class="tag">Hardware</span>
+                <span class="tag">PCB Design</span>
+              </div>
+            </div>
+            <a href="projects/microstrip-impedance.html" class="card-link" aria-label="View Microstrip Impedance"></a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Embedded Systems -->
+      <section class="project-category">
+        <div class="category-header">
+          <h2>Embedded Systems</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Edge Device for Auredia -->
+          <article class="project-card" data-categories="embedded">
+            <div class="card-inner">
+              <div class="project-icon">📟</div>
+              <div class="status-badge">🚧 Work in Progress</div>
+
+              <h3 class="project-title">Edge Device for Auredia</h3>
+
+              <p class="project-description">
+                Led firmware development for an industrial ewdge telemetry device from
+                architecture through deployment. Implemented modular, event-driven embedded
+                software in Zephyr RTOS with support for peripheral integration, secure cloud
+                connectivity, FOTA updates, and device certificate provisioning. 
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Embedded Systems</span>
+                <span class="tag">Firmware</span>
+                <span class="tag">Nordic MCUs</span>
+                <span class="tag">Zephyr</span>
+              </div>
+            </div>
+            <a href="projects/edge-device-auredia.html" class="card-link" aria-label="View Edge Device for Auredia"></a>
+          </article>
+          
+          <!-- Button Roulette -->
+          <article class="project-card" data-categories="embedded">
+            <div class="card-inner">
+              <div class="project-icon">▶️</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Button Roulette</h3>
+
+              <p class="project-description">
+                Embedded interaction project using button inputs, timing, state logic,
+                and physical feedback to create a small hardware game. Two seperate versions
+                were created; one in FreeRTOS and one in ARM Assembly.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">ARM Assembly</span>
+                <span class="tag">Embedded Systems</span>
+                <span class="tag">Firmware</span>
+                <span class="tag">FreeRTOS</span>
+                <span class="tag">STM32</span>
+              </div>
+            </div>
+            <a href="projects/button-roulette.html" class="card-link" aria-label="View Button Roulette"></a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Professional Development -->
+      <section class="project-category">
+        <div class="category-header">
+          <h2>Professional Development</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- FE Electrical & Computer -->
+          <article class="project-card" data-categories="professional">
+            <div class="card-inner">
+              <div class="project-icon">📝</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">FE Electrical & Computer</h3>
+
+              <p class="project-description">
+                Passed the NCEES Fundamentals of Engineering (FE) Electrical
+                & Computer exam, demonstrating competency in core electrical
+                engineering principles and professional engineering fundamentals.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">NCEES FE Exam</span>
+                <span class="tag">Electrical Engineering</span>
+                <span class="tag">Computer Engineering</span>
+              </div>
+            </div>
+            <a href="projects/fe-electrical-computer.html" class="card-link" aria-label="View FE Electrical & Computer"></a>
+          </article>
+          
+          <!-- Eagle Scout Project -->
+          <article class="project-card" data-categories="professional">
+            <div class="card-inner">
+              <div class="project-icon">🦅</div>
+              <div class="status-badge">✨ Completed</div>
+
+              <h3 class="project-title">Eagle Scout Project</h3>
+
+              <p class="project-description">
+                Led a project that applied budgeting and project management
+                to conceptualize cubbies based on a Church's quota of 32 movable
+                cubbies. Developed solutions to logistical challenges such as furniture's size.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Project Management</span>
+                <span class="tag">Risk Management</span>
+                <span class="tag">Budget Management</span>
+                <span class="tag">Community Service</span>
+              </div>
+            </div>
+            <a href="projects/eagle-scout-project.html" class="card-link" aria-label="View Eagle Scout Project"></a>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/projects.js"></script>
+</body>
+</html>

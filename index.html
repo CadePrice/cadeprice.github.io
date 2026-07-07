@@ -3,222 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cade Price - Engineering Portfolio | RF, Embedded Systems, Hardware, and Verification & Validation">
   <title>Cade Price | Engineering Portfolio</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/landing.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Cade Price home">
-      <span class="brand-mark">CP</span>
-      <span>Cade Price</span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#projects">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="mailto:cadeprice@example.com">Contact</a>
-    </nav>
-  </header>
+  <!-- Animated Background -->
+  <div class="background-container">
+    <img src="assets/images/background.gif" alt="" class="background-image" id="bgImage">
+    <div class="background-overlay"></div>
+  </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Cade Price.</h1>
-        <nav class="hero-nav" aria-label="Quick navigation">
-          <a href="#projects" aria-label="View projects">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="9" y1="3" x2="9" y2="21"></line>
-            </svg>
-          </a>
-          <a href="blog.html" aria-label="View blog">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </a>
-          <a href="mailto:cadeprice@example.com" aria-label="Contact">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
-        </nav>
-        <p>
-          A focused archive of RF, validation, embedded, and sensor-system work.
-          Built to show the thinking behind the boards, test plans, instruments,
-          and prototypes.
-        </p>
+  <!-- Main Landing Section -->
+  <main class="landing-main">
+    <div class="container">
+      <div class="landing-grid">
+
+        <!-- Left Side: Branding & Navigation -->
+        <div class="landing-left slide-in-left">
+          <div class="brand-section">
+            <div class="brand-icon">
+              <span class="gradient-text">CP</span>
+            </div>
+            <h1 class="brand-name">Cade Price</h1>
+            <p class="brand-tagline">Engineer. Builder. Problem-solver.</p>
+          </div>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="projects.html" class="nav-icon" aria-label="View Projects">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <span class="nav-label">Projects</span>
+            </a>
+
+            <a href="contact.html" class="nav-icon" aria-label="Contact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span class="nav-label">Contact</span>
+            </a>
+
+            <a href="resume.html" class="nav-icon" aria-label="View Resume">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="nav-label">Resume</span>
+            </a>
+
+            <a href="games/index.html" class="nav-icon" aria-label="Play Game">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="6" y1="11" x2="10" y2="11"></line>
+                <line x1="8" y1="9" x2="8" y2="13"></line>
+                <line x1="15" y1="12" x2="15.01" y2="12"></line>
+                <line x1="18" y1="10" x2="18.01" y2="10"></line>
+                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              </svg>
+              <span class="nav-label">Game</span>
+            </a>
+          </nav>
+
+          <div class="social-links">
+            <a href="https://github.com/cadeprice" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/cadeprice" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Featured Project -->
+        <div class="landing-right slide-in-right">
+          <div class="featured-card card glow-effect">
+            <div class="featured-header">
+              <span class="tag status-badge">Latest Project</span>
+              <span class="project-date">Jun 2025 - Aug 2025</span>
+            </div>
+
+            <h2 class="featured-title">Auredia Sensor Kit</h2>
+
+            <p class="featured-description">
+              Sensor hardware and embedded system work for collecting and moving measured
+              signals through a reliable kit architecture. Focus on signal integrity,
+              modular design, and robust data acquisition for real-world applications.
+            </p>
+
+            <div class="featured-tags">
+              <span class="tag">Hardware</span>
+              <span class="tag">Embedded Systems</span>
+            </div>
+
+            <div class="featured-visual">
+              <img src="assets/images/auredia-man-blender.png" alt="Auredia Sensor Kit 3D Model" class="project-image">
+            </div>
+
+            <a href="projects/auredia-sensor-kit.html" class="btn btn-primary">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="margin-left: 8px;">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
       </div>
-    </section>
-
-    <section class="projects-feature" id="projects" aria-labelledby="projects-title">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Selected work</p>
-          <h2 id="projects-title">Projects</h2>
-        </div>
-
-        <div class="project-filters" aria-label="Filter projects">
-          <button class="filter-chip is-active" type="button" data-filter="all">All</button>
-          <button class="filter-chip" type="button" data-filter="hardware">Hardware</button>
-          <button class="filter-chip" type="button" data-filter="embedded-systems">Embedded</button>
-          <button class="filter-chip" type="button" data-filter="verification-validation">V&amp;V</button>
-          <button class="filter-chip" type="button" data-filter="rf-engineering">RF</button>
-        </div>
-      </div>
-
-      <article class="featured-project project-card" data-categories="course-corrector hardware embedded-systems verification-validation" data-project="course-corrector-imus">
-        <div class="project-copy">
-          <div class="project-meta">
-            <span>Course Corrector</span>
-            <span>May 2026 - Jun 2026</span>
-          </div>
-          <h3>Course Corrector IMUs</h3>
-          <p>
-            Inertial measurement hardware for validating motion, alignment, and
-            correction behavior in a Course Corrector system. The project centers
-            on embedded sensing, repeatable testing, and verification data that can
-            support design decisions.
-          </p>
-
-          <div class="project-tags" aria-label="Course Corrector IMUs tags">
-            <span>Course Corrector</span>
-            <span>Hardware</span>
-            <span>Embedded Systems</span>
-            <span>Verification/Validation</span>
-          </div>
-
-          <div class="project-actions">
-            <a href="#" aria-label="Course Corrector IMUs case study coming soon">Case Study</a>
-            <a href="#" aria-label="Course Corrector IMUs test notes coming soon">Test Notes</a>
-          </div>
-        </div>
-
-        <div class="project-visual visual-imu" aria-hidden="true">
-          <div class="visual-grid"></div>
-          <div class="imu-board">
-            <span class="chip chip-main"></span>
-            <span class="chip chip-small one"></span>
-            <span class="chip chip-small two"></span>
-            <span class="pin-row pins-left"></span>
-            <span class="pin-row pins-right"></span>
-            <span class="axis axis-x">X</span>
-            <span class="axis axis-y">Y</span>
-            <span class="axis axis-z">Z</span>
-          </div>
-        </div>
-      </article>
-
-      <div class="project-grid">
-        <article class="mini-project project-card" data-categories="hardware embedded-systems" data-project="auredia-sensor-kit">
-          <div class="mini-visual visual-sensor" aria-hidden="true"></div>
-          <div class="project-meta">
-            <span>Sensor Kit</span>
-            <span>Jun 2025 - Aug 2025 / May 2026 - Aug 2026</span>
-            <div class="project-tags">
-              <span>Hardware</span>
-              <span>Embedded Systems</span>
-            </div>
-          </div>
-          <h3>Auredia Sensor Kit</h3>
-          <p>Sensor hardware and embedded system work for collecting and moving measured signals through a reliable kit architecture.</p>
-          <div class="project-actions">
-            <a href="#" aria-label="Auredia Sensor Kit case study coming soon">Case Study</a>
-          </div>
-        </article>
-
-        <article class="mini-project project-card" data-categories="verification-validation hardware" data-project="current-limiter-monitor">
-          <div class="mini-visual visual-current" aria-hidden="true"></div>
-          <div class="project-meta">
-            <span>Power Electronics</span>
-            <span>Feb 2026 - Apr 2026</span>
-            <div class="project-tags">
-              <span>Verification/Validation</span>
-              <span>Hardware</span>
-            </div>
-          </div>
-          <h3>Current Limiter/Monitor</h3>
-          <p>Hardware-focused limiter and monitoring project with emphasis on measurable behavior, protection thresholds, and validation.</p>
-          <div class="project-actions">
-            <a href="#" aria-label="Current Limiter/Monitor case study coming soon">Case Study</a>
-          </div>
-        </article>
-
-        <article class="mini-project project-card" data-categories="rf-engineering" data-project="yagi-antenna">
-          <div class="mini-visual visual-yagi" aria-hidden="true"></div>
-          <div class="project-meta">
-            <span>RF Engineering</span>
-            <span>Nov 2025 - Dec 2025</span>
-            <div class="project-tags">
-              <span>RF Engineering</span>
-            </div>
-          </div>
-          <h3>95.1 MHz Three Element Yagi Antenna</h3>
-          <p>Three element directional antenna design centered on frequency targeting, element spacing, and practical RF measurement.</p>
-          <div class="project-actions">
-            <a href="#" aria-label="95.1 MHz Three Element Yagi Antenna case study coming soon">Case Study</a>
-          </div>
-        </article>
-
-        <article class="mini-project project-card" data-categories="rf-engineering hardware" data-project="microstrip-impedance-matching">
-          <div class="mini-visual visual-microstrip" aria-hidden="true"></div>
-          <div class="project-meta">
-            <span>RF Hardware</span>
-            <span>Oct 2025 - Nov 2025</span>
-            <div class="project-tags">
-              <span>RF Engineering</span>
-              <span>Hardware</span>
-            </div>
-          </div>
-          <h3>Microstrip Impedance Matching</h3>
-          <p>RF hardware exploration of transmission-line behavior, impedance matching, and board-level geometry effects.</p>
-          <div class="project-actions">
-            <a href="#" aria-label="Microstrip Impedance Matching case study coming soon">Case Study</a>
-          </div>
-        </article>
-
-        <article class="mini-project project-card" data-categories="embedded-systems" data-project="button-roulette">
-          <div class="mini-visual visual-button" aria-hidden="true"></div>
-          <div class="project-meta">
-            <span>Embedded Game</span>
-            <span>Nov 2024 / Mar 2025</span>
-            <div class="project-tags">
-              <span>Embedded Systems</span>
-            </div>
-          </div>
-          <h3>Button Roulette</h3>
-          <p>Embedded interaction project using button inputs, timing, state logic, and physical feedback to create a small hardware game.</p>
-          <div class="project-actions">
-            <a href="#" aria-label="Button Roulette case study coming soon">Case Study</a>
-          </div>
-        </article>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <script>
-    const filterButtons = document.querySelectorAll(".filter-chip");
-    const projectCards = document.querySelectorAll(".project-card");
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-
-        filterButtons.forEach((item) => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-
-        projectCards.forEach((card) => {
-          const categories = card.dataset.categories.split(" ");
-          card.hidden = filter !== "all" && !categories.includes(filter);
-        });
-      });
-    });
-  </script>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

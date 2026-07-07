@@ -1,0 +1,423 @@
+/* Landing Page Specific Styles */
+
+.landing-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) minmax(400px, 700px);
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Left Side: Branding & Navigation */
+.landing-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.brand-section {
+  text-align: left;
+}
+
+.brand-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--purple-primary), var(--cyan-primary));
+  opacity: 0.1;
+}
+
+.brand-name {
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--purple-light), var(--cyan-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-tagline {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.main-nav .nav-icon {
+  width: 100%;
+  height: auto;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  border-radius: 14px;
+  text-decoration: none;
+}
+
+.main-nav .nav-icon svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.main-nav .nav-icon:hover .nav-label {
+  color: var(--cyan-light);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+}
+
+.social-links a:hover {
+  border-color: var(--border-hover);
+  color: var(--purple-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--glow);
+}
+
+/* Right Side: Featured Project */
+.landing-right {
+  position: relative;
+}
+
+.featured-card {
+  padding: 2.5rem;
+  background: rgba(30, 37, 53, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--border-color);
+}
+
+.featured-card:hover {
+  transform: translateY(0);
+}
+
+.featured-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.featured-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.featured-visual {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2d3a4e, #182235);
+  border-radius: 12px;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.imu-representation {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.imu-board {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 200px;
+  border: 3px solid #081119;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #245d69, #16353d);
+  box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-6deg);
+  transition: transform var(--transition-normal);
+}
+
+.featured-card:hover .imu-board {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.chip {
+  position: absolute;
+  background: #111723;
+  border: 2px solid #071119;
+}
+
+.chip-main {
+  left: 45px;
+  top: 60px;
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
+}
+
+.chip-small {
+  width: 30px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.chip-1 {
+  left: 25px;
+  top: 35px;
+}
+
+.chip-2 {
+  right: 25px;
+  bottom: 35px;
+}
+
+.pin-row {
+  position: absolute;
+  top: 38px;
+  width: 10px;
+  height: 124px;
+  background: repeating-linear-gradient(to bottom, #d0d7dc 0 5px, transparent 5px 12px);
+}
+
+.pins-left {
+  left: 12px;
+}
+
+.pins-right {
+  right: 12px;
+}
+
+.axis {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #071119;
+}
+
+.axis-x {
+  right: 30px;
+  top: 35px;
+  background: #ff735c;
+}
+
+.axis-y {
+  left: 32px;
+  bottom: 30px;
+  background: #6ff2bd;
+}
+
+.axis-z {
+  right: 48px;
+  bottom: 70px;
+  background: #ffd166;
+}
+
+.featured-card .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding: 1.1rem 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .landing-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .landing-left {
+    order: 2;
+  }
+
+  .landing-right {
+    order: 1;
+  }
+
+  .brand-section {
+    text-align: center;
+  }
+
+  .brand-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav .nav-icon {
+    flex: 1;
+    min-width: 140px;
+    max-width: 180px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-main {
+    padding: 1rem 0;
+  }
+
+  .landing-grid {
+    gap: 2rem;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+  }
+
+  .featured-description {
+    font-size: 1rem;
+  }
+
+  .featured-visual {
+    min-height: 250px;
+  }
+
+  .imu-representation {
+    height: 250px;
+  }
+
+  .imu-board {
+    width: 140px;
+    height: 180px;
+  }
+
+  .main-nav {
+    gap: 0.8rem;
+  }
+
+  .main-nav .nav-icon {
+    min-width: 120px;
+    padding: 1rem;
+  }
+
+  .nav-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-tagline {
+    font-size: 1.1rem;
+  }
+
+  .featured-card {
+    padding: 1.5rem;
+  }
+
+  .featured-title {
+    font-size: 1.8rem;
+  }
+
+  .main-nav .nav-icon {
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 100px;
+    padding: 1rem 0.8rem;
+  }
+
+  .nav-label {
+    font-size: 0.9rem;
+  }
+
+  .main-nav .nav-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}

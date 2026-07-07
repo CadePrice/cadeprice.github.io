@@ -1,0 +1,384 @@
+/* Project Detail Page Styles */
+
+.project-detail {
+  padding: 2rem 0 4rem;
+  min-height: 100vh;
+}
+
+.project-detail .container {
+  max-width: 900px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: all var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--purple-light);
+  gap: 0.3rem;
+}
+
+.back-link svg {
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
+}
+
+.project-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.project-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.info-item svg {
+  stroke: var(--purple-light);
+  flex-shrink: 0;
+}
+
+.project-content {
+  line-height: 1.8;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+}
+
+.content-section h3 {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  color: var(--text-primary);
+}
+
+.content-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--purple-light);
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+.content-section ul,
+.content-section ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  color: var(--text-secondary);
+}
+
+.content-section li {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.content-section li strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.challenge-card {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border-left: 4px solid var(--purple-primary);
+}
+
+.challenge-card:hover {
+  transform: none;
+  border-left-color: var(--cyan-primary);
+}
+
+.challenge-card h4 {
+  margin-bottom: 0.8rem;
+  color: var(--cyan-light);
+}
+
+.challenge-card p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.tech-specs {
+  padding: 2rem;
+  background: var(--bg-card);
+}
+
+.tech-specs:hover {
+  transform: none;
+}
+
+.tech-specs h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.spec-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.spec-value {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Code Blocks */
+pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.95rem;
+  color: var(--cyan-light);
+}
+
+pre code {
+  color: var(--text-primary);
+}
+
+/* Images */
+.project-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+.project-content figure {
+  margin: 2rem 0;
+}
+
+.project-content figcaption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* Project Navigation */
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.project-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.project-nav a:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.nav-prev svg {
+  transition: transform var(--transition-fast);
+}
+
+.nav-prev:hover svg {
+  transform: translateX(-4px);
+}
+
+.nav-next svg {
+  transition: transform var(--transition-fast);
+}
+
+.nav-next:hover svg {
+  transform: translateX(4px);
+}
+
+.nav-all {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, var(--purple-primary), var(--magenta));
+  border-color: var(--purple-primary);
+}
+
+.nav-all:hover {
+  box-shadow: 0 8px 20px var(--glow);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--purple-primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+td {
+  color: var(--text-secondary);
+}
+
+tbody tr:hover {
+  background: rgba(168, 85, 247, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-header h1 {
+    font-size: 2rem;
+  }
+
+  .project-info {
+    gap: 1.2rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .content-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-prev,
+  .nav-next {
+    justify-content: center;
+  }
+
+  .nav-all {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail {
+    padding: 1rem 0 3rem;
+  }
+
+  .content-section p,
+  .content-section li {
+    font-size: 1rem;
+  }
+
+  .challenge-card {
+    padding: 1.2rem;
+  }
+
+  .tech-specs {
+    padding: 1.5rem;
+  }
+
+  pre {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
