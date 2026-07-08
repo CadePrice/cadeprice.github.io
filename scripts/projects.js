@@ -38,35 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         section.hidden = !hasVisibleCards;
       });
 
-      // Announce filter change for accessibility
-      announceFilterChange(button.textContent, getVisibleProjectCount());
     });
   });
 
-  // Count visible projects
-  function getVisibleProjectCount() {
-    return Array.from(projectCards).filter(card => !card.hidden).length;
-  }
-
-  // Accessibility announcement
-  function announceFilterChange(filterName, count) {
-    const announcement = document.getElementById('filter-announcement');
-    if (announcement) {
-      announcement.textContent = `Showing ${count} project${count !== 1 ? 's' : ''} for ${filterName}`;
-    }
-  }
-
-  // Add accessibility announcement element if it doesn't exist
-  if (!document.getElementById('filter-announcement')) {
-    const announcement = document.createElement('div');
-    announcement.id = 'filter-announcement';
-    announcement.className = 'sr-only';
-    announcement.setAttribute('role', 'status');
-    announcement.setAttribute('aria-live', 'polite');
-    document.body.appendChild(announcement);
-  }
-
-  // Initialize count
-  const initialCount = getVisibleProjectCount();
-  console.log(`Loaded ${initialCount} projects`);
 });
