@@ -1,6 +1,96 @@
 // Main JavaScript for Cade Price Portfolio
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Scroll snap functionality for landing page
+  const snapSections = document.querySelectorAll('.snap-section');
+
+  if (snapSections.length > 0) {
+    let isScrolling = false;
+    let currentSection = 0;
+    let touchStartY = 0;
+
+    // Function to scroll to a specific section
+    function scrollToSection(index) {
+      if (index >= 0 && index < snapSections.length) {
+        isScrolling = true;
+        currentSection = index;
+
+        snapSections[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Reset scrolling flag after animation
+        setTimeout(() => {
+          isScrolling = false;
+        }, 1000);
+      }
+    }
+
+    // Mouse wheel event
+    let wheelTimeout;
+    window.addEventListener('wheel', (e) => {
+      if (isScrolling) {
+        e.preventDefault();
+        return;
+      }
+
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => {
+        if (e.deltaY > 0 && currentSection < snapSections.length - 1) {
+          // Scrolling down
+          scrollToSection(currentSection + 1);
+        } else if (e.deltaY < 0 && currentSection > 0) {
+          // Scrolling up
+          scrollToSection(currentSection - 1);
+        }
+      }, 50);
+    }, { passive: false });
+
+    // Touch events for mobile
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (isScrolling) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+
+      if (Math.abs(deltaY) > 50) { // Minimum swipe distance
+        if (deltaY > 0 && currentSection < snapSections.length - 1) {
+          // Swiping up (scrolling down)
+          scrollToSection(currentSection + 1);
+        } else if (deltaY < 0 && currentSection > 0) {
+          // Swiping down (scrolling up)
+          scrollToSection(currentSection - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Update current section based on scroll position
+    const updateCurrentSection = debounce(() => {
+      if (isScrolling) return;
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      snapSections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          currentSection = index;
+        }
+      });
+    }, 100);
+
+    window.addEventListener('scroll', updateCurrentSection);
+
+    // Initialize - scroll to first section
+    scrollToSection(0);
+  }
+
   // Fallback for background image if GIF doesn't exist
   const bgImage = document.getElementById('bgImage');
 
