@@ -219,25 +219,25 @@ a:hover {
   pointer-events: none;
 }
 
-/* Better video display on mobile - focus on fire */
+/* Better video display on mobile - focus on fire in bottom left */
 @media (max-width: 768px) {
   .background-video {
     opacity: 0.6;
-    object-position: center 65%;
+    object-position: 30% 80%;
   }
 }
 
 @media (max-width: 480px) {
   .background-video {
     opacity: 0.65;
-    object-position: center 70%;
+    object-position: 25% 85%;
   }
 }
 
 /* Handle portrait orientation specifically - emphasize fire area */
 @media (orientation: portrait) {
   .background-video {
-    object-position: center 70%;
+    object-position: 25% 85%;
   }
 }
 
