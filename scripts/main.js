@@ -1,10 +1,11 @@
 // Main JavaScript for Cade Price Portfolio
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll snap functionality for landing page
+  // Scroll snap functionality for landing page (only on index page)
   const snapSections = document.querySelectorAll('.snap-section');
+  const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
 
-  if (snapSections.length > 0) {
+  if (snapSections.length > 0 && isIndexPage) {
     let isScrolling = false;
     let currentSection = 0;
     let touchStartY = 0;
@@ -30,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mouse wheel event
     let wheelTimeout;
     window.addEventListener('wheel', (e) => {
-      if (isScrolling) {
-        e.preventDefault();
+      // Don't interfere if user is interacting with navigation
+      if (isScrolling || e.target.closest('a, button')) {
         return;
       }
 
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
           scrollToSection(currentSection - 1);
         }
       }, 50);
-    }, { passive: false });
+    }, { passive: true });
 
     // Touch events for mobile
     window.addEventListener('touchstart', (e) => {
@@ -87,8 +88,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateCurrentSection);
 
-    // Initialize - scroll to first section
-    scrollToSection(0);
+    // Initialize current section based on scroll position
+    updateCurrentSection();
+  }
+
+  // Resume Modal functionality
+  const resumeBtn = document.getElementById('resumeBtn');
+  const resumeModal = document.getElementById('resumeModal');
+  const closeModal = document.getElementById('closeModal');
+
+  if (resumeBtn && resumeModal && closeModal) {
+    // Open modal
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      resumeModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      resumeModal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+
+    // Close modal when clicking outside
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) {
+        resumeModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+        resumeModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // Fallback for background image if GIF doesn't exist

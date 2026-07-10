@@ -2,15 +2,18 @@
 
 .resume-main {
   padding: 0;
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 70px;
 }
 
 /* PDF Viewer */
 .pdf-viewer-container {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 100%;
+  flex: 1;
   background: var(--bg-card);
   overflow: hidden;
 }
