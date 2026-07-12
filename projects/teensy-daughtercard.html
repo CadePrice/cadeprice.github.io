@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="../styles/projects.css">
   <link rel="stylesheet" href="../styles/project-detail.css">
-  <script src="https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <!-- Background -->
@@ -109,7 +109,19 @@
             Given GigaPCB pinouts, I was tasked with creating this complimentary daughtercard. I started off by finding a male complimentary that could mate with the GigaPCB, with the XG4A-5034 being suffice. I then bashed my head into a meat grinder visualizing how the daughtercard would connect to the GigaPCB. With a vague idea in mind, I referred to Teensy4.1 pinouts and mapped ~55 traces to the XG4A-5034. I also added an Ethernet connector, LED, and exposed several test points to finish the design.
           </p>
           <figure>
-            <div id="teensy-stl-viewer" class="project-model-viewer" role="img" aria-label="Interactive Teensy Daughtercard STL model"></div>
+            <model-viewer
+              src="../assets/models/teensy.gltf"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1"
+              exposure="1"
+              environment-image="neutral"
+              interaction-prompt="auto"
+              touch-action="pan-y"
+              alt="Interactive Teensy Daughtercard 3D model"
+              class="project-model-viewer">
+            </model-viewer>
+            <figcaption>Drag to rotate, scroll to zoom, right-click drag to pan.</figcaption>
           </figure>
         </section>
 
@@ -152,159 +164,6 @@
 
     </div>
   </main>
-
-  <script>
-    (async () => {
-    const container = document.getElementById('teensy-stl-viewer');
-
-    if (!container) {
-      return;
-    }
-
-    if (window.location.protocol === 'file:') {
-        container.innerHTML = '<p style="padding: 1rem; margin: 0;">STEP viewer requires a local web server. Open this page through your site server instead of file://.</p>';
-        return;
-    }
-
-    try {
-      const THREE = await import('https://esm.sh/three@0.167.1');
-      const { OrbitControls } = await import('https://esm.sh/three@0.167.1/examples/jsm/controls/OrbitControls.js');
-
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x11131a);
-
-      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 2000);
-      camera.position.set(0, 70, 170);
-
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
-
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.08;
-      controls.target.set(0, 0, 0);
-
-      scene.add(new THREE.HemisphereLight(0xdde7ff, 0x1a1d26, 1.0));
-
-      const keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
-      keyLight.position.set(120, 140, 90);
-      scene.add(keyLight);
-
-      const fillLight = new THREE.DirectionalLight(0x88aaff, 0.45);
-      fillLight.position.set(-120, 40, -90);
-      scene.add(fillLight);
-
-      const renderStepModel = async () => {
-        try {
-          if (typeof window.occtimportjs !== 'function') {
-            throw new Error('STEP parser failed to load from CDN.');
-          }
-
-          const occt = await window.occtimportjs({
-            locateFile: () => 'https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.wasm'
-          });
-
-          const response = await fetch('../assets/models/teensy.step');
-          if (!response.ok) {
-            throw new Error('Unable to fetch STEP model file.');
-          }
-
-          const fileBuffer = new Uint8Array(await response.arrayBuffer());
-          const result = occt.ReadStepFile(fileBuffer, null);
-
-          if (!result || !result.success || !Array.isArray(result.meshes) || result.meshes.length === 0) {
-            throw new Error('STEP import returned no meshes.');
-          }
-
-          const modelGroup = new THREE.Group();
-
-          result.meshes.forEach((meshData) => {
-            const positions = meshData?.attributes?.position?.array;
-            if (!positions || positions.length === 0) {
-              return;
-            }
-
-            const geometry = new THREE.BufferGeometry();
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-
-            const normals = meshData?.attributes?.normal?.array;
-            if (normals && normals.length > 0) {
-              geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-            }
-
-            const indices = meshData?.index?.array;
-            if (indices && indices.length > 0) {
-              geometry.setIndex(indices);
-            }
-
-            if (!normals || normals.length === 0) {
-              geometry.computeVertexNormals();
-            }
-
-            let color = new THREE.Color(0xa7dfd6);
-            if (Array.isArray(meshData?.color) && meshData.color.length >= 3) {
-              const [r, g, b] = meshData.color;
-              const normalize = (c) => (c > 1 ? c / 255 : c);
-              color = new THREE.Color(normalize(r), normalize(g), normalize(b));
-            }
-
-            const material = new THREE.MeshStandardMaterial({
-              color,
-              metalness: 0.25,
-              roughness: 0.55
-            });
-
-            modelGroup.add(new THREE.Mesh(geometry, material));
-          });
-
-          if (modelGroup.children.length === 0) {
-            throw new Error('STEP import produced empty geometry.');
-          }
-
-          const bounds = new THREE.Box3().setFromObject(modelGroup);
-          const center = bounds.getCenter(new THREE.Vector3());
-          modelGroup.position.sub(center);
-
-          const size = bounds.getSize(new THREE.Vector3());
-          const maxDim = Math.max(size.x, size.y, size.z) || 1;
-          const scale = 110 / maxDim;
-          modelGroup.scale.setScalar(scale);
-
-          scene.add(modelGroup);
-        } catch (error) {
-          container.innerHTML = '<p style="padding: 1rem; margin: 0;">Unable to load STEP model.</p>';
-          console.error(error);
-        }
-      };
-
-      renderStepModel();
-
-      const resize = () => {
-        const width = container.clientWidth;
-        const height = container.clientHeight;
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      };
-
-      const resizeObserver = new ResizeObserver(resize);
-      resizeObserver.observe(container);
-      resize();
-
-      const animate = () => {
-        controls.update();
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-      };
-
-      animate();
-    } catch (error) {
-      container.innerHTML = '<p style="padding: 1rem; margin: 0;">Unable to initialize 3D viewer.</p>';
-      console.error(error);
-    }
-    })();
-  </script>
 
   <!-- Scripts -->
   <script src="../scripts/main.js"></script>
