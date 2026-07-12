@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="../styles/projects.css">
   <link rel="stylesheet" href="../styles/project-detail.css">
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <!-- Background -->
@@ -109,19 +108,7 @@
             Given GigaPCB pinouts, I was tasked with creating this complimentary daughtercard. I started off by finding a male complimentary that could mate with the GigaPCB, with the XG4A-5034 being suffice. I then bashed my head into a meat grinder visualizing how the daughtercard would connect to the GigaPCB. With a vague idea in mind, I referred to Teensy4.1 pinouts and mapped ~55 traces to the XG4A-5034. I also added an Ethernet connector, LED, and exposed several test points to finish the design.
           </p>
           <figure>
-            <model-viewer
-              src="../assets/models/teensy.gltf"
-              camera-controls
-              camera-orbit="0deg 0deg auto"
-              auto-rotate
-              shadow-intensity="1"
-              exposure="1"
-              environment-image="neutral"
-              interaction-prompt="none"
-              touch-action="pan-y"
-              alt="Interactive Teensy Daughtercard 3D model"
-              class="project-model-viewer">
-            </model-viewer>
+            <img src="../assets/images/teensy-daughtercard.png" alt="Teensy Daughtercard hero image">
           </figure>
         </section>
 
