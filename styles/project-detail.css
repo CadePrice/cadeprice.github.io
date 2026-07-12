@@ -84,6 +84,7 @@
   font-size: 2rem;
   margin-bottom: 1.2rem;
   color: var(--text-primary);
+  text-align: center;
 }
 
 .content-section h3 {
@@ -215,6 +216,23 @@ pre code {
 .project-content figure {
   margin: 2rem 0;
   text-align: center;
+}
+
+.project-model-viewer {
+  width: min(100%, 820px);
+  height: min(62vh, 560px);
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.35));
+  overflow: hidden;
+}
+
+.project-model-viewer canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .project-content figcaption {
