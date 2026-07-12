@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Teensy Daughtercard - Hardware and PCB Design Project">
-  <title>Current Limiter/Monitor Test Boards | Cade Price</title>
+  <meta name="description" content="Current Limiter Monitor - Hardware and PCB Design Project">
+  <title>Current Limiter Monitor | Cade Price</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,13 +58,13 @@
       <!-- Project Header -->
       <header class="project-header">
         <div class="project-badges">
-          <span class="tag status-badge">Completed</span>
+          <span class="tag status-badge">✨ Completed</span>
           <span class="tag">Hardware</span>
           <span class="tag">KiCad</span>
-          <span class="tag">PCB Design</span>
+          <span class="tag">Verification & Validation</span>
         </div>
 
-        <h1>Inrush Current Limiter & Stepper Motor Current Monitor Verification/Validation Boards</h1>
+        <h1>Current Limiter Monitor</h1>
 
         <div class="project-info">
           <span class="info-item">
@@ -90,56 +90,49 @@
       <!-- Project Content -->
       <article class="project-content">
 
-        <!-- Introduction -->
+        <!-- Context -->
         <section class="content-section">
+          <h2>Context:</h2>
           <p>
-            Writing introductions to these projects is hard, so I will start off by reminiscing on the 2026 World Cup. One whole day without games is <strong>STRAIGHT blasphemy</strong>. It's okay though because quarterfinals start tomorrow. Anyways, like how the <strong>GOAT Halland</strong> can be seen with a cowboy hat during his stay in Texas, the Teensy Daughtercard is like a hat for the full avionic system here at Texas A&M Rocket Engine Design (RED).
+            The GigaPCB serves as the primary avionics interface for the Texas A&M Rocket Engine Design (RED) liquid rocket engine test stand, integrating stepper motor controllers, pressure transducers, and thermocouples. Before the full system could be manufactured, two critical analog subsystems required standalone verification: an LM5069-based inrush current limiter and a stepper motor current monitor.
+          </p>
+        </section>
+
+        <!-- Procedure -->
+        <section class="content-section">
+          <h2>Procedure:</h2>
+          <p>
+            This was my first major project for RED. I was provided with a critical path activity to fulfill the design stage of the GigaPCB. I was provided with several screenshots of the design. Since my team was unexperienced in hardware design, I scheduled weekly meetings to teach members KiCAD - while slowly recreating the design. By early February, I had created a working draft of the PCB. I recall doing a design review while at a club (interesting experience). By 2/10, the design was submitted for order and my partner in crime Nikhil created a working BOM.
           </p>
           <figure>
-            <img src="../assets/images/haaland-cowboy-hat.png" alt="Haaland with Cowboy Hat">
+            <img src="../assets/images/current-testboards.png" alt="Current test boards">
           </figure>
-        </section>
-
-        <!-- System Overview -->
-        <section class="content-section">
           <p>
-            The GigaPCB interfaces with any RED rocket engine via stepper motor controllers, pressor transducers, and thermocouples. The Teensy Daughtercard is an attachment to the GigaPCB that provides Ethernet connectivity and computational capability. Separating these functions into a removable daughtercard allows controller designs to be modified, tested, and replaced without impacting the significantly more expensive sensor suite. Below is a conceptual block diagram of full avionic system.
+            Test plans were the next objective in order. Though we had a decent idea of the desired tests, our unfamiliarity with the system meant we were unsure of how the board would interface with other AVI equipment. Unfortunately, guidance in this aspect was minimal until the final day of the project. The PCB/components were ordered on 2/25 and received on 3/5. Delays in this aspect came from business teams having to collaborate with university services and shipping times. However, my team was to go out of town for the entire upcoming week due to Spring Break.
+          </p>
+          <p>
+            Upon return, immense pressure was present to get the boards assembled and tested. I recall driving into College Station from McAllen and immediately heading to the workstation to become accustomed to supply locations and tools. Unfortunately, our components were scattered across boxes, and the soldering iron was dull. To make matters worse, I missed a major flaw in the PCB. The NMOs pads were not exposed since they were not defined in the mask layer. At first glance, the board appeared unusable. This was a point where I nearly had buckled, since another week of delays and hundreds of dollars in costs would be a decisive defeat for me on my first (and critical path) project. We realized, however, that the copper traces were still there and present on the top layer of the board. Thus, rather than scrapping the PCB and waiting weeks for a revision, we carefully removed the solder mask by hand to expose the underlying copper and recovered the board. With this done, assembly would resume…
+          </p>
+          <p>
+            I spent several late nights living in the lab with my AVI peers. On 3/18, we realized that LM5069 was nowhere to be found. That night, I saw the order sheet and realized that the desired LM5069 part that management requested was out of stock. Luckily, an alternative LM5069 package was successfully ordered the following day. On 3/19, I recall being 30 minutes late for a seminar since I was at a friend’s house using his soldering station to finish this project. At this point, it was now 99% assembled. Below are pictures of how the board currently looked and a cool shot of it zoomed in (don’t mind the extensive flux that makes it look super greasy).
           </p>
           <figure>
-            <img src="../assets/images/teensy-daughtercard-cbd.png" alt="Teensy Daughtercard Conceptual Block Diagram">
+            <img src="../assets/images/current-testboards-assembly.jpg" alt="Current test boards assembly">
           </figure>
-        </section>
-
-        <!-- Design Process -->
-        <section class="content-section">
+          <figure>
+            <img src="../assets/images/current-testboards-zoomed.JPEG" alt="Zoomed in current test boards assembly">
+          </figure>
           <p>
-            Given GigaPCB pinouts, I was tasked with creating this complimentary daughtercard. I started off by finding a male complimentary that could mate with the GigaPCB, with the XG4A-5034 being suffice. I then bashed my head into a meat grinder visualizing how the daughtercard would connect to the GigaPCB. With a vague idea in mind, I referred to Teensy4.1 pinouts and mapped ~55 traces to the XG4A-5034. I also added an Ethernet connector, LED, and exposed several test points to create <strong>THE GREATEST DAUGHTERCARD OF ALL TIME</strong>.
+            Initial testing occurred on 3/29. According to the LM5069 data sheet, the GATE pin should be 12V above the output (VRPS line). We powered the test board to 36V and saw no functionality out of the NMOS. This failure resulted in an alternative inrush current limiting method being added (thermistor). Reasons for failure could be attributed to previous design flaws or the specific NMOS not being suffice. On 4/2, stepper motor current monitor testing occurred with guidance of a higher ups. This introduced me to how these motors operated. This test ended up successful, as we read a successful voltage change at SMCA1 that corresponded to the stepper motor actuating. Considerations were still made into removing the op-amp buffer stage as it fired in the process. With that, the project was concluded and the GigaPCB was ordered on 4/5.
           </p>
         </section>
 
-        <!-- Design Review & Revision -->
+        <!-- What Was Learned -->
         <section class="content-section">
+          <h2>What was Learned:</h2>
           <p style="margin-bottom: 0.25rem;">
-            Then I sent it to design review and redid the whole thing… 🗿 I attempted to create this using a 2-layer board which looked like a rat's nest of power/signal traces. Here, I learned what a typical 4-layer board looks like:
+            Looking back, this was one of the hardest hardware projects I have ever done. There was a combination of personal failures, major communication inconsistencies, and immense pressure. Doing this in parallel with the Course Corrector and FE Electrical & Computer was insane. However, there was a beauty to this project. I learned how one must be able to improvise when working on any electrical project. This came when exposing our NMOS pads to bridge a connection to see our current monitor work due to the op amp getting fried. I learned that engineering comes with adversity, and there will be decisive struggles in any project. Finally, I can appreciate the friendships made during the process and being able to both teach and be taught how to operate with hardware. Thus, this is a project I will hold with me for the rest of time as a major growing point.
           </p>
-          <div style="display: flex; justify-content: center; margin-top: 0.25rem;">
-            <ol style="margin: 0;">
-              <li>Signals Plane</li>
-              <li>GND Plane</li>
-              <li>Power Plane</li>
-              <li>Signal Plane</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- Final Result -->
-        <section class="content-section">
-          <p>
-            Once remade, I received a final stamp of approval for the design. I created a Bill of Materials (BOM) with component specifications and a Standard Operating Procedure (SOP) for assembly/usage guidelines. Voilà 😤😤😤
-          </p>
-          <figure>
-            <img src="../assets/images/teensy-daughtercard.png" alt="Final Teensy Daughtercard Design">
-          </figure>
         </section>
 
       </article>
