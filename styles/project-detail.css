@@ -1,8 +1,8 @@
 /* Project Detail Page Styles */
 
 .project-detail {
-  padding: 2rem 0 4rem;
-  min-height: 100vh;
+  padding: calc(var(--nav-height) + 1.5rem) 0 4rem;
+  min-height: 100svh;
 }
 
 .project-detail .container {
@@ -48,7 +48,7 @@
 }
 
 .project-header h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 1.15rem + 2.69vw, 3.5rem);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -220,7 +220,11 @@ pre code {
 
 .project-model-viewer {
   width: min(100%, 820px);
-  height: min(62vh, 560px);
+  /* aspect-ratio instead of vh: keeps the viewer proportional to its own
+     width under zoom rather than shrinking against viewport height. */
+  aspect-ratio: 41 / 28;
+  height: auto;
+  max-height: min(62svh, 560px);
   display: block;
   margin: 2rem auto;
   border-radius: 12px;
@@ -345,10 +349,6 @@ tbody tr:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .project-header h1 {
-    font-size: 2rem;
-  }
-
   .project-info {
     gap: 1.2rem;
   }
@@ -382,7 +382,7 @@ tbody tr:hover {
 
 @media (max-width: 480px) {
   .project-detail {
-    padding: 1rem 0 3rem;
+    padding: calc(var(--nav-height) + 1rem) 0 3rem;
   }
 
   .content-section p,

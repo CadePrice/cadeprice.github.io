@@ -28,11 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Snap-scrolling assumes each section fits the viewport. When zoomed in (or
+    // on a short window) a section can be taller than the viewport, and
+    // hijacking the wheel would strand the overflowing content out of reach.
+    function sectionsFitViewport() {
+      return Array.from(snapSections).every(
+        (section) => section.offsetHeight <= window.innerHeight + 1
+      );
+    }
+
     // Mouse wheel event
     let wheelTimeout;
     window.addEventListener('wheel', (e) => {
       // Don't interfere if user is interacting with navigation
-      if (isScrolling || e.target.closest('a, button')) {
+      if (isScrolling || e.target.closest('a, button') || !sectionsFitViewport()) {
         return;
       }
 
@@ -54,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     window.addEventListener('touchend', (e) => {
-      if (isScrolling) return;
+      if (isScrolling || !sectionsFitViewport()) return;
 
       const touchEndY = e.changedTouches[0].clientY;
       const deltaY = touchStartY - touchEndY;

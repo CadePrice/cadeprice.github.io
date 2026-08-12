@@ -37,7 +37,6 @@
           <a href="projects.html">Projects</a>
           <a href="resume.html" class="active">Resume</a>
           <a href="contact.html">Contact</a>
-          <a href="games/index.html">Game</a>
         </nav>
       </div>
     </div>
@@ -47,16 +46,18 @@
   <main class="resume-main">
     <!-- PDF Viewer -->
     <div class="pdf-viewer-container">
-      <iframe
-        src="assets/documents/resume.pdf"
-        type="application/pdf"
-        class="pdf-viewer"
-        title="Resume PDF"
-      >
-        <p>Your browser does not support PDF viewing.
-          <a href="assets/documents/resume.pdf" download>Download the PDF</a> instead.
-        </p>
-      </iframe>
+      <div class="pdf-viewer-frame">
+        <iframe
+          src="assets/documents/resume.pdf#toolbar=1&navpanes=0&view=FitH"
+          type="application/pdf"
+          class="pdf-viewer"
+          title="Resume PDF"
+        >
+          <p>Your browser does not support PDF viewing.
+            <a href="assets/documents/resume.pdf" download>Download the PDF</a> instead.
+          </p>
+        </iframe>
+      </div>
     </div>
   </main>
 

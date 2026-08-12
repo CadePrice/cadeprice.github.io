@@ -1,8 +1,10 @@
 /* Projects Page Styles */
 
 .projects-main {
-  padding: 4rem 0;
-  min-height: 100vh;
+  /* Top padding must clear the absolutely-positioned header, which grows with
+     zoom — a bare 4rem let the h1 slide underneath it. */
+  padding: calc(var(--nav-height) + 2rem) 0 4rem;
+  min-height: 100svh;
 }
 
 .page-header {
@@ -11,7 +13,7 @@
 }
 
 .page-header h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2rem, 1.08rem + 4.11vw, 5rem);
   margin-bottom: 1rem;
 }
 
@@ -206,10 +208,6 @@
 
   .header-nav a {
     font-size: 0.85rem;
-  }
-
-  .page-header h1 {
-    font-size: 2rem;
   }
 
   .subtitle {

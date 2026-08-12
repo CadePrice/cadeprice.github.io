@@ -25,9 +25,13 @@
   --glow: rgba(168, 85, 247, 0.3);
 
   /* Spacing */
-  --nav-height: 70px;
+  /* Actual rendered header height: brand icon + 1rem padding top/bottom +
+     1px bottom border. Kept in sync with .brand-icon-small so anything
+     offsetting below the fixed header lands correctly at any zoom. */
+  --brand-icon-size: clamp(36px, 2.25rem + 0.88vw, 44px);
+  --nav-height: calc(var(--brand-icon-size) + 2rem + 1px);
   --container-max: 1400px;
-  --container-padding: 2rem;
+  --container-padding: clamp(1rem, 0.5rem + 1.5vw, 2rem);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -63,17 +67,20 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* Fluid type: each preferred value keeps a rem term so headings scale with
+   browser zoom / user font size, not just viewport width. A bare vw value is
+   zoom-invariant, which collapses the heading-to-body ratio when zoomed. */
 h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 1.29rem + 5.39vw, 6rem);
   font-weight: 800;
 }
 
 h2 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 1.31rem + 3.08vw, 4rem);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 1.15rem + 1.54vw, 2.5rem);
 }
 
 p {
@@ -130,8 +137,9 @@ a:hover {
 }
 
 .brand-icon-small {
-  width: 44px;
-  height: 44px;
+  width: var(--brand-icon-size);
+  height: var(--brand-icon-size);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,12 +158,12 @@ a:hover {
 
 .header-nav {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 0.69rem + 0.94vw, 2rem);
   align-items: center;
 }
 
 .header-nav a {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 0.8rem + 0.16vw, 1rem);
   font-weight: 700;
   color: var(--text-secondary);
   text-decoration: none;
@@ -257,8 +265,8 @@ a:hover {
 
 /* Navigation Icons */
 .nav-icon {
-  width: 60px;
-  height: 60px;
+  width: clamp(50px, 3.13rem + 1.09vw, 60px);
+  height: clamp(50px, 3.13rem + 1.09vw, 60px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,8 +299,8 @@ a:hover {
 }
 
 .nav-icon svg {
-  width: 28px;
-  height: 28px;
+  width: clamp(24px, 1.5rem + 0.44vw, 28px);
+  height: clamp(24px, 1.5rem + 0.44vw, 28px);
   position: relative;
   z-index: 1;
   stroke: var(--purple-light);
@@ -492,33 +500,18 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  :root {
-    --container-padding: 1.5rem;
-  }
-
+  /* --container-padding, h1 and .nav-icon sizes are now fluid via clamp() */
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
   }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  .nav-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .nav-icon svg {
-    width: 24px;
-    height: 24px;
-  }
 }
 
 @media (max-width: 480px) {
-  :root {
-    --container-padding: 1rem;
+  /* Drop the wordmark so the header stays on one line; the CP icon still
+     links home. Keeps the header height predictable when zoomed way in. */
+  .brand-text {
+    display: none;
   }
 
   p {

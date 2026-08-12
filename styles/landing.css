@@ -1,8 +1,9 @@
 /* Landing Page Specific Styles */
 
+/* min-height (not height) so a section can grow past the viewport when zoomed
+   or short-screened, instead of overflowing into the next section. */
 .snap-section {
-  height: 100vh;
-  min-height: 100vh;
+  min-height: 100svh;
   position: relative;
 }
 
@@ -11,13 +12,17 @@
   align-items: center;
   justify-content: center;
   background: transparent;
+  /* Clear the absolutely-positioned header once content is tall enough to
+     stop being vertically centred. Generous top padding so the header can
+     grow (wrapped nav, larger text) without overlapping the content. */
+  padding: calc(var(--nav-height) + 2.5rem) 0 2rem;
 }
 
 .landing-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(2rem, 1.5rem + 1.5vw, 3rem);
   max-width: 800px;
   margin: 0 auto;
   position: relative;
@@ -32,7 +37,7 @@
 }
 
 .brand-name {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2rem, 1.31rem + 3.08vw, 4rem);
   margin: 0;
   background: linear-gradient(135deg, var(--purple-light), var(--cyan-light));
   -webkit-background-clip: text;
@@ -43,20 +48,21 @@
 .main-nav {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 0.5rem + 0.94vw, 1.5rem);
   justify-content: center;
   position: relative;
   z-index: 10;
 }
 
 .main-nav .nav-icon {
-  width: 140px;
-  height: 140px;
+  width: clamp(90px, 5rem + 4.38vw, 140px);
+  height: clamp(90px, 5rem + 4.38vw, 140px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(0.6rem, 0.48rem + 0.38vw, 1rem);
   border-radius: 16px;
   text-decoration: none;
   background: var(--bg-card);
@@ -75,8 +81,8 @@
 }
 
 .main-nav .nav-icon svg {
-  width: 36px;
-  height: 36px;
+  width: clamp(24px, 1.5rem + 1.31vw, 36px);
+  height: clamp(24px, 1.5rem + 1.31vw, 36px);
   flex-shrink: 0;
   color: var(--text-secondary);
   transition: color var(--transition-fast);
@@ -87,7 +93,7 @@
 }
 
 .nav-label {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 0.8rem + 0.16vw, 1rem);
   font-weight: 700;
   color: var(--text-primary);
   transition: color var(--transition-fast);
@@ -142,108 +148,22 @@
 .blank-card {
   width: 100%;
   max-width: 1200px;
-  min-height: 600px;
+  min-height: clamp(350px, 18.75rem + 21.88vw, 600px);
   background: var(--bg-card);
   border: 2px solid var(--border-color);
   border-radius: 24px;
-  padding: 3rem;
+  padding: clamp(1.25rem, 0.63rem + 1.88vw, 3rem);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 2;
 }
 
-/* Responsive Design */
+/* Responsive Design
+   Nav icon / label / gap / brand-name sizes are fluid via clamp() above, so
+   only genuinely layout-changing rules remain here. */
 @media (max-width: 768px) {
-  .landing-main,
   .secondary-section {
     padding: 1rem 0;
-  }
-
-  .landing-content {
-    gap: 2.5rem;
-  }
-
-  .main-nav {
-    gap: 1rem;
-  }
-
-  .main-nav .nav-icon {
-    width: 120px;
-    height: 120px;
-  }
-
-  .main-nav .nav-icon svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .nav-label {
-    font-size: 0.95rem;
-  }
-
-  .blank-card {
-    min-height: 500px;
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .landing-content {
-    gap: 2rem;
-  }
-
-  .brand-name {
-    font-size: 2.5rem;
-  }
-
-  .main-nav {
-    gap: 0.8rem;
-    flex-wrap: wrap;
-  }
-
-  .main-nav .nav-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .main-nav .nav-icon svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .nav-label {
-    font-size: 0.9rem;
-  }
-
-  .blank-card {
-    min-height: 400px;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-name {
-    font-size: 2rem;
-  }
-
-  .main-nav .nav-icon {
-    width: 90px;
-    height: 90px;
-    gap: 0.6rem;
-  }
-
-  .main-nav .nav-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .nav-label {
-    font-size: 0.85rem;
-  }
-
-  .blank-card {
-    min-height: 350px;
-    padding: 1.25rem;
   }
 }
 
@@ -273,7 +193,7 @@
   border-radius: 16px;
   width: 90%;
   max-width: 1000px;
-  height: 90vh;
+  height: 90svh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -385,7 +305,7 @@
 @media (max-width: 768px) {
   .modal-content {
     width: 95%;
-    height: 95vh;
+    height: 95svh;
   }
 
   .modal-header {
