@@ -227,3 +227,47 @@
     font-size: 1.5rem;
   }
 }
+
+.ptcrb-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 850px;
+    margin: 1.5rem auto 0;
+}
+
+.ptcrb-card {
+    position: relative;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(160, 120, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    text-align: left;
+}
+
+.ptcrb-number {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+}
+
+.ptcrb-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.ptcrb-card p {
+    margin: 0;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+@media (max-width: 700px) {
+    .ptcrb-grid {
+        grid-template-columns: 1fr;
+    }
+}
