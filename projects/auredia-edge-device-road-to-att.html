@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Microstrip Impedance Matching - RF Project">
-  <title>Microstrip Impedance Matching | Cade Price</title>
+  <meta name="description" content="Auredia Edge Device - Road to AT&T">
+  <title>Auredia Edge Device - Road to AT&T | Cade Price</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,12 +59,13 @@
       <header class="project-header">
         <div class="project-badges">
           <span class="tag status-badge">✨ Completed</span>
-          <span class="tag">Hardware</span>
-          <span class="tag">PCB Design</span>
-          <span class="tag">RF Engineering</span>
+          <span class="tag">FCC SDoC</span>
+          <span class="tag">PTCRB</span>
+          <span class="tag">Regulatory Compliance</span>
+          <span class="tag">Embedded Systems</span>
         </div>
 
-        <h1>Microstrip Impedance Matching</h1>
+        <h1>Auredia Edge Device → AT&T</h1>
 
         <div class="project-info">
           <span class="info-item">
@@ -74,7 +75,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            October 2025 - November 2025
+            May 2026 - August 2026
           </span>
           <span class="info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
@@ -82,7 +83,7 @@
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
               <line x1="12" y1="22.08" x2="12" y2="12"></line>
             </svg>
-            Electromagnetism
+            Auredia
           </span>
         </div>
       </header>
@@ -90,15 +91,33 @@
       <!-- Project Content -->
       <article class="project-content">
 
+        <!-- Abstract -->
+        <section class="content-section">
+          <h2>Abstract:</h2>
+          <p>
+            My first tenure at Auredia focused on developing functional firmware for an IoT edge device. My second focused on obtaining cellular carrier approval and provisioning SIM cards. Entering the summer, a vendor had finally been approved to perform the required FCC testing. This page provides a high-level guide to the process of certifying an IoT device for use on AT&T's network.
+          </p>
+        </section>
+
         <!-- Context -->
         <section class="content-section">
-          <h2>WIP</h2>
+          <h2>Context:</h2>
+          <p>
+            Any new IoT device must conform to government regulations. In the United States, these requirements are established by the Federal Communications Commission (FCC). Cellular modules and modems must meet applicable FCC requirements before they can be integrated into products sold in the United States. Since Auredia's device used a cellular module that had already received the necessary FCC certification, the finished product did not require the same certification process as a new radio module. Instead, the device would undergo Supplier's Declaration of Conformity (SDoC) testing to verify that the completed product remained within applicable limits for unintentional RF emissions.
+          </p>
+          <p>
+            SIM cards allow an IoT device to authenticate and connect to a cellular carrier's network. However, FCC compliance does not automatically mean a device is approved for use on a particular carrier. Carriers such as AT&T and Verizon maintain their own requirements for connected devices, including lists of pre-approved cellular modules and additional testing that may be required before SIMs can be activated for a device model. For Auredia, this meant that FCC compliance was only one part of the process; the device also had to satisfy AT&T's requirements before it could be deployed on the network.
+          </p>
+          <figure>
+            <img src="../assets/images/auredia-man-reference.png" alt="High Level Timeline">
+          </figure>
         </section>
-      </article>
+
+
 
       <!-- Project Navigation -->
       <nav class="project-nav">
-        <a href="yagi-antenna.html" class="nav-prev">
+        <a href="microstrip-impedance-matching.html" class="nav-prev">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -106,7 +125,7 @@
           <span>Previous Project</span>
         </a>
         <a href="../projects.html" class="nav-all">All Projects</a>
-        <a href="auredia-edge-device-road-to-att.html" class="nav-next">
+        <a href="auredia-edge-device-firmware.html" class="nav-next">
           <span>Next Project</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
             <line x1="5" y1="12" x2="19" y2="12"></line>

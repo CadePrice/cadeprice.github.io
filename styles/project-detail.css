@@ -296,6 +296,8 @@ pre code {
 
 .nav-all {
   padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
   background: linear-gradient(135deg, var(--purple-primary), var(--magenta));
   border-color: var(--purple-primary);
 }
